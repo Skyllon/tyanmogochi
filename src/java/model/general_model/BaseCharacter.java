@@ -3,17 +3,17 @@ package src.java.model.general_model;
 import src.java.model.general_model.states.*;
 
 public abstract class BaseCharacter {
-  private String    name;
-  private String    surname;
-  private String    lovelyPhrase;
-  private Integer   age;
-  private Double    hunger;
-  private Double    energy;
-  private Double    horny;
-  private Boolean   isFeedable;
-  private Boolean   isPlayable;
-  private MoodState mood;
-  private TyanType  type;
+  protected String    name;
+  protected String    surname;
+  protected String    lovelyPhrase;
+  protected Integer   age;
+  protected Double    hunger;
+  protected Double    energy;
+  protected Double    horny;
+  protected Boolean   isFeedable;
+  protected Boolean   isPlayable;
+  protected MoodState mood;
+  protected TyanType  type;
 
   public BaseCharacter(
     String    name,
