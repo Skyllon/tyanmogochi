@@ -2,7 +2,7 @@ package src.java.model.general_model;
 
 import src.java.model.general_model.states.*;
 
-public abstract class Character {
+public abstract class BaseCharacter {
   private String    name;
   private String    surname;
   private String    lovelyPhrase;
@@ -13,4 +13,6 @@ public abstract class Character {
 
   private MoodState mood;
   private TyanType  type;
+
+
 }
