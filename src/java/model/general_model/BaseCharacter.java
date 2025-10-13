@@ -15,6 +15,31 @@ public abstract class BaseCharacter {
   private MoodState mood;
   private TyanType  type;
 
+  public BaseCharacter(
+    String    name,
+    String    surname,
+    String    lovelyPhrase,
+    Integer   age,
+    Double    hunger,
+    Double    energy,
+    Double    horny,
+    Boolean   isFeedable,
+    Boolean   isPlayable,
+    MoodState mood,
+    TyanType  type
+  ) {
+    this.name         = name;
+    this.surname      = surname;
+    this.lovelyPhrase = lovelyPhrase;
+    this.age          = age;
+    this.hunger       = hunger;
+    this.energy       = energy;
+    this.horny        = horny;
+    this.isFeedable   = isFeedable;
+    this.isPlayable   = isPlayable;
+    this.mood         = mood;
+    this.type         = type;
+  }
 
   public void setName(String name)                  { this.name         = name;         }
   public void setSurname(String surname)            { this.surname      = surname;      }
@@ -39,4 +64,6 @@ public abstract class BaseCharacter {
   public Boolean getPlayable()                      { return this.isPlayable;   }
   public MoodState getMood()                        { return this.mood;         }
   public TyanType getType()                         { return this.type;         }
+
+  public void sayCompliment() { this.horny += 0.25; }
 }
