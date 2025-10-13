@@ -11,8 +11,10 @@ public abstract class BaseCharacter {
   private Integer   hunger;
   private Integer   energy;
 
+  private Boolean   isFeedable;
+  private Boolean   isPlayable;
+
   private MoodState mood;
   private TyanType  type;
-
 
 }
