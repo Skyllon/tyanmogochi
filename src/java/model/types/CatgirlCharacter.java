@@ -41,6 +41,7 @@ implements Playable, Feedable
   public void play() {
     this.energy -= 10.5;
     this.hunger += 17.5;
+    setMood(MoodState.PLAYFUL);
   }
 
   public void sayCompliment() {
