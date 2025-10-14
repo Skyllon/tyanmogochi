@@ -2,14 +2,12 @@ package src.java.model.types;
 
 import src.java.model.general_model.BaseCharacter;
 import src.java.model.general_model.states.*;
-import src.java.model.interfaces.Feedable;
+import src.java.model.interfaces.Playable;
 
 public class YandereCharacter
 extends BaseCharacter
-implements Feedable
+implements Playable
 {
-  private Boolean isEmbarassed;
-
   public YandereCharacter(
     String    name,
     String    surname,
@@ -21,8 +19,7 @@ implements Feedable
     Boolean   isFeedable,
     Boolean   isPlayable,
     MoodState mood,
-    TyanType  type,
-    Boolean   isEmbarassed
+    TyanType  type
   ) {
     super(
       name,
@@ -37,21 +34,16 @@ implements Feedable
       mood,
       type
     );
-
-    this.isEmbarassed = isEmbarassed;
   }
 
-  public void setIsEmbarassed(Boolean isEmbarassed) { this.isEmbarassed = isEmbarassed; }
-  public Boolean getIsEmbarassed()                  { return this.isEmbarassed;         }
-
-  // TODO: later will be calculated by type of food
-  public void feed() { setHunger(20.2); }
-
+  public void play() { this.energy -= 5.; }
   public void sayCompliment() {
-    this.isEmbarassed = true;
-    this.horny += 5.25;
-    System.out.println(this.getLovelyPhrase());
+    this.horny += 10.5;
+    System.out.printf("[NEWS]: a girl was killed by student called %s %s\n",
+      this.name, this.surname);
   }
 
-  // TODO: add more methods related with this type of girl
+  // TODO: think about additional methods or fields that can describe this type well
+  // maybe need to think about some level of violence that will be increase because
+  // of others girls attention
 }
