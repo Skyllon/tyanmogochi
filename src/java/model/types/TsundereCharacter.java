@@ -45,7 +45,7 @@ implements Feedable
   public Boolean getIsEmbarassed()                  { return this.isEmbarassed;         }
 
   // TODO: later will be calculated by type of food
-  public void feed() { setHunger(20.2); }
+  public void feed() { this.hunger -= 25.1; }
 
   public void sayCompliment() {
     this.isEmbarassed = true;
