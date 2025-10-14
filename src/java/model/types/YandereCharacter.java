@@ -36,7 +36,10 @@ implements Playable
     );
   }
 
-  public void play() { this.energy -= 5.; }
+  public void play() {
+    this.energy -= 5.;
+    this.hunger += 10.5;
+  }
   public void sayCompliment() {
     this.horny += 10.5;
     System.out.printf("[NEWS]: a girl was killed by student called %s %s\n",
