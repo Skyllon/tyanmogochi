@@ -37,7 +37,11 @@ implements Playable, Feedable
     );
   }
 
-  public void feed() { this.hunger -= 2.5; }
+  public void feed() { 
+    this.hunger -= 2.5; 
+    System.out.println(getLovelyPhrase());
+  }
+
   public void play() {
     this.energy -= 10.5;
     this.hunger += 17.5;
