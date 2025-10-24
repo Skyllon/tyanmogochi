@@ -40,6 +40,9 @@ implements Playable, Feedable
   public void feed() { 
     this.hunger -= 2.5; 
     System.out.println(getLovelyPhrase());
+    if (this.hunger > 70){
+      this.mood = MoodState.HAPPY;
+    }
   }
 
   public void play() {
@@ -47,9 +50,11 @@ implements Playable, Feedable
     this.hunger += 17.5;
     setMood(MoodState.PLAYFUL);
   }
+  
 
   public void sayCompliment() {
     this.horny += 20.25;
     System.out.println(this.getLovelyPhrase());
+    setMood(MoodState.HAPPY);
   }
 }

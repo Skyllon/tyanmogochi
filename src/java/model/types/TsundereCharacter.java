@@ -56,15 +56,18 @@ implements Feedable
   }
 
   public void sayCompliment() {
+    setMood(MoodState.HAPPY);
+    System.out.println("No. No.. Youre just kidding. Baka");
     this.isEmbarassed = true;
     this.horny += 5.25;
     if (this.horny >80 && this.mood == MoodState.HAPPY){
       this.mood = MoodState.HORNY;
-    }
+    } 
     System.out.println(this.getLovelyPhrase());
   }
   public void play(){
     if (isEmbarassed ==  true && (this.mood == MoodState.SAD || this.mood == MoodState.ANGRY || this.mood == MoodState.TIRED)){
+      System.out.println("What? No");
       return;
     } else if (this.mood == MoodState.HAPPY){
       this.mood = MoodState.PLAYFUL;
