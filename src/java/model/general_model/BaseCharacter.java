@@ -1,6 +1,6 @@
-package src.java.model.general_model;
+package model.general_model;
 
-import src.java.model.general_model.states.*;
+import model.general_model.states.*;
 
 public abstract class BaseCharacter {
   protected String    name;

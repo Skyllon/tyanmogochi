@@ -1,4 +1,4 @@
-package src.java.model.general_model.states;
+package model.general_model.states;
 
 public enum TyanType {
   YANDERE,

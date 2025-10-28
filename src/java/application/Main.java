@@ -1,20 +1,21 @@
-package src.java;
+package application;
 import java.util.Scanner;
-import src.java.model.types.TsundereCharacter;
-import src.java.model.types.YandereCharacter;
-import src.java.model.types.CatgirlCharacter;
-import src.java.model.types.MaidCharacter;
-import src.java.model.general_model.states.*;
+import model.types.TsundereCharacter;
+import model.types.YandereCharacter;
+import model.types.CatgirlCharacter;
+import model.types.MaidCharacter;
+import model.general_model.states.*;
 
 public class Main {
   public static void main(String[] args) {
     Scanner console = new Scanner(System.in);
-    System.out.println("Set her name: ");
-    String name = console.next();
-    System.out.println("Set her surname: ");
-    String surname = console.next();
-    System.out.println("Set her age: ");
+    System.out.print("Set her name: ");
+    String name = console.nextLine();
+    System.out.print("Set her surname: ");
+    String surname = console.nextLine();
+    System.out.print("Set her age: ");
     int age = console.nextInt();
+    console.nextLine();
     TsundereCharacter tsundere = new TsundereCharacter(
       name,
       surname,
@@ -26,7 +27,7 @@ public class Main {
       true,
       true,
       MoodState.HAPPY,
-      TyanType.YANDERE,
+      TyanType.TSUNDERE,
       false
     );
     while (true){

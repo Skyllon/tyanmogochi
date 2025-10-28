@@ -1,8 +1,8 @@
-package src.java.model.types;
+package model.types;
 
-import src.java.model.general_model.BaseCharacter;
-import src.java.model.general_model.states.*;
-import src.java.model.interfaces.Playable;
+import model.general_model.BaseCharacter;
+import model.general_model.states.*;
+import model.interfaces.Playable;
 
 public class YandereCharacter
 extends BaseCharacter

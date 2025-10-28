@@ -1,4 +1,4 @@
-package src.java.model.interfaces;
+package model.interfaces;
 
 public interface Playable {
   public void play();
