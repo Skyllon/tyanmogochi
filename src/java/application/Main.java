@@ -30,13 +30,16 @@ public class Main {
       TyanType.TSUNDERE,
       false
     );
+    tsundere.setName(name);
+    tsundere.setSurname(surname);
+    tsundere.setAge(age);
     while (true){
     System.out.println("What do you wanna do?~\n1.Feed\n2.Play\n3.Make a compliment\n4.Exit");
     try {
       int choice = console.nextInt();
       switch (choice) {
         case 1:
-        System.out.println("Choose the type of food you wanna feed me ♡(>ᴗ•)\n1.Matcha latte\n2.Mochi\n3.Sushi\4.Tayaki\n5.Ramen");
+        System.out.println("Choose the type of food you wanna feed me ♡(>ᴗ•)\n1.Matcha latte\n2.Mochi\n3.Sushi\n4.Tayaki\n5.Ramen");
           int food = console.nextInt();
           tsundere.feed();
           break;
