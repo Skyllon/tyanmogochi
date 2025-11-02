@@ -14,7 +14,6 @@ public class Main {
     System.out.println("Choose your chan (･ω<)☆\n1.Tsundere\n2.Yandere\n3.Maid\n4.Catgirl");
     int chanChoice = console.nextInt();
     console.nextLine();
-    TyanType selectedChan = (TyanType) tyans[chanChoice-1];
     System.out.print("Set her name: ");
     String name = console.nextLine();
     System.out.print("Set her surname: ");
@@ -75,7 +74,17 @@ public class Main {
     }
 
     while (true){
-      
+      if (chan instanceof TsundereCharacter){
+        TsundereCharacter tsundere = (TsundereCharacter) chan;
+        System.out.println("\n"+"-".repeat(20));
+        System.out.println("\nYour: "+tsundere.getName()+" "+tsundere.getSurname()+"♡");
+        System.out.println("-".repeat(20));
+        System.out.println("HUNGER: "+tsundere.getHunger());
+        System.out.println("ENERGY: "+tsundere.getEnergy());
+        System.out.println("HORNY: "+tsundere.getHorny());
+        System.out.println("MOOD: "+tsundere.getMood());
+        System.out.println("-".repeat(20)+"\n");
+      }
     System.out.println("What do you wanna do?~\n1.Feed\n2.Play\n3.Make a compliment\n4.Exit");
     try {
       int choice = console.nextInt();
