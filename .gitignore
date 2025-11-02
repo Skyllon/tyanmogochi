@@ -70,3 +70,8 @@ tags
 *.vsix
 .history
 .ionide
+
+#output files
+/target/
+/build/
+/classes/
