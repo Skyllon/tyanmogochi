@@ -9,7 +9,7 @@ import model.general_model.states.*;
 public class Main {
   public static void main(String[] args) {
     Scanner console = new Scanner(System.in);
-
+    
     Object[] tyans = { TyanType.TSUNDERE, TyanType.YANDERE, TyanType.MAID, TyanType.CATGIRL };
     System.out.println("Choose your chan (･ω<)☆\n1.Tsundere\n2.Yandere\n3.Maid\n4.Catgirl");
     int chanChoice = console.nextInt();
@@ -21,7 +21,7 @@ public class Main {
     System.out.print("Set her age: ");
     int age = console.nextInt();
     console.nextLine();
-
+    
     Object chan=null;
     try {
       switch (chanChoice){
@@ -71,7 +71,7 @@ public class Main {
 
     } catch (NumberFormatException e){
       System.out.println("Invalid input");
-    } finally { console.close(); }
+    }
 
     while (true){
       if (chan instanceof TsundereCharacter){
@@ -98,7 +98,7 @@ public class Main {
           }
           break;
         case 2:
-
+        
           if (chan instanceof TsundereCharacter){
             ((TsundereCharacter) chan).play();
           }
