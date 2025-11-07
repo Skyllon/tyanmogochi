@@ -109,13 +109,14 @@ public class Main {
           break;
         case 4:
           System.exit(0);
+          console.close();
           break;
         default:
           System.out.println("Invalid input");
       }
     } catch (NumberFormatException e) {
       System.out.println("Invalid input");
-    } finally { console.close(); }
+    }
     }
   }
 }
