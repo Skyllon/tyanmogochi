@@ -73,9 +73,9 @@ implements Feedable
     if (this.energy > 1e2) this.energy = 1e2;
 
     // Mood check
-    if (this.hunger > 80 && this.energy > 80)
+    if (this.hunger < 30 && this.energy > 80)
       this.mood = MoodState.HAPPY;
-    else if (this.hunger < 30 && this.energy < 40)
+    else if (this.hunger > 80 && this.energy < 40)
       this.mood = MoodState.SAD;
   }
 
