@@ -145,7 +145,7 @@ public class Main {
           case 3:
             console.nextLine();
             System.out.println("Say something romantic to your tyan: ");
-            String compliment = console.nextLine();
+            console.nextLine();
             if (chan instanceof TsundereCharacter)
               ((TsundereCharacter) chan).sayCompliment();
             break;
