@@ -82,10 +82,14 @@ implements Feedable
   public void sayCompliment() {
     setMood(MoodState.HAPPY);
     this.isEmbarassed = true;
-    this.horny += 5.25;
+    this.horny += 5.25; 
 
     if (this.horny > 80 && this.mood == MoodState.HAPPY)
       this.mood = MoodState.HORNY;
+    if (this.horny > 100)
+      this.horny = 100.0;
+    else if (this.horny < 0)
+      this.horny = 0.0;
 
     System.out.println(this.getLovelyPhrase());
   }
