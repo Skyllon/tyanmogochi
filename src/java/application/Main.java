@@ -7,12 +7,6 @@ import model.general_model.states.*;
 public class Main {
   public static void main(String[] args) {
     Scanner console = new Scanner(System.in);
-    TyanType[] tyans = {
-      TyanType.TSUNDERE,
-      TyanType.YANDERE,
-      TyanType.MAID,
-      TyanType.CATGIRL
-    };
 
     // Tyan choice
     System.out.println("Choose your chan (･ω<)☆\n1.Tsundere\n2.Yandere\n3.Maid\n4.Catgirl");
