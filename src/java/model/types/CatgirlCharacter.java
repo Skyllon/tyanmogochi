@@ -76,7 +76,12 @@ implements Playable, Feedable
   public void play() {
     this.energy -= 10.5;
     this.hunger += 17.5;
-    setMood(MoodState.PLAYFUL);
+    if (this.energy > 65 && this.hunger < 40)
+      setMood(MoodState.PLAYFUL);
+    else if (this.energy >40 && this.hunger <30)
+      setMood(MoodState.HAPPY);
+    else if (this.energy >90 && this.hunger >90)
+      setMood(MoodState.TIRED);
   }
 
 
@@ -84,5 +89,18 @@ implements Playable, Feedable
     this.horny += 20.25;
     System.out.println(this.getLovelyPhrase());
     setMood(MoodState.HAPPY);
+    if (this.horny >80 && this.hunger <30 && this.mood==MoodState.HAPPY){
+      this.mood = MoodState.HORNY;
+    }
+    else if (this.horny > 40 && this.hunger <20 )
+      this.mood = MoodState.HAPPY;
+    else if (this.horny < 40 && this.hunger >40&& this.energy <40)
+      this.mood = MoodState.SAD;
+    else if (this.horny < 20 && this.hunger >70&& this.energy <20)
+      this.mood = MoodState.ANGRY;
+    if (this.horny > 100)
+      this.horny = 100.0;
+    else if (this.horny < 0)
+      this.horny = 0.0;
   }
 }
