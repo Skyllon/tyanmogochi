@@ -81,7 +81,6 @@ implements Feedable
 
   public void sayCompliment() {
     setMood(MoodState.HAPPY);
-    System.out.println("No. No.. You're just kidding. Baka");
     this.isEmbarassed = true;
     this.horny += 5.25;
 
@@ -106,6 +105,4 @@ implements Feedable
       this.hunger += 15.;
     }
   }
-  // TODO: add more methods related with this type of girl
-  // play if mood = happy (?)
 }
