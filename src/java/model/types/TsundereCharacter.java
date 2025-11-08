@@ -100,7 +100,7 @@ implements Feedable
     || this.mood == MoodState.TIRED)) {
       System.out.println("What? No");
       return;
-    } else if (this.mood == MoodState.HAPPY) {
+    } else if (this.mood == MoodState.HAPPY || this.mood == MoodState.PLAYFUL) {
       this.mood = MoodState.PLAYFUL;
       this.energy -= 10.;
       this.hunger += 15.;
@@ -108,5 +108,9 @@ implements Feedable
       this.energy -= 15.;
       this.hunger += 15.;
     }
+
+    if (this.energy < 0)   this.energy = 0.;
+    if (this.hunger > 1e2) this.hunger = 1e2;
   }
+
 }
