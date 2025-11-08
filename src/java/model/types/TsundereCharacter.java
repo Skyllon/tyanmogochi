@@ -68,6 +68,10 @@ implements Feedable
         break;
     }
 
+    // Boundaries check
+    if (this.hunger < 0)   this.hunger = 0.;
+    if (this.energy > 1e2) this.energy = 1e2;
+
     // Mood check
     if (this.hunger > 80 && this.energy > 80){
       this.mood = MoodState.HAPPY;
