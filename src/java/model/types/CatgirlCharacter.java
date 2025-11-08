@@ -36,9 +36,10 @@ implements Playable, Feedable
       type
     );
   }
-
-  public void feed() { 
-    this.hunger -= 2.5; 
+  // TODO: user the same logic from TsundereCharacter feed() method
+  // literally just copy-paste this
+  public void feed(final int food) {
+    this.hunger -= 2.5;
     System.out.println(getLovelyPhrase());
     if (this.hunger > 70){
       this.mood = MoodState.HAPPY;
@@ -50,7 +51,7 @@ implements Playable, Feedable
     this.hunger += 17.5;
     setMood(MoodState.PLAYFUL);
   }
-  
+
 
   public void sayCompliment() {
     this.horny += 20.25;

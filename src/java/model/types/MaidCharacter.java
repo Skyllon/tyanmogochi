@@ -37,7 +37,7 @@ implements Feedable
     );
   }
 
-  public void feed() {
+  public void feed(final int food) {
     this.energy += 20.;
     this.hunger -= 10.5;
     System.out.printf("%s\n", getLovelyPhrase());
