@@ -159,6 +159,52 @@ public class Main {
       } catch (NumberFormatException e) {
         System.out.println("Invalid input");
       }
+
+      if (chan instanceof YandereCharacter){
+        YandereCharacter yandere = (YandereCharacter) chan;
+        System.out.println("\n" + "-".repeat(20));
+        System.out.println("\nYour: " + yandere.getName() + " " + yandere.getSurname() + " ♡");
+        System.out.println("-".repeat(20));
+        System.out.println("HUNGER: " + yandere.getHunger());
+        System.out.println("ENERGY: " + yandere.getEnergy());
+        System.out.println("HORNY: " + yandere.getHorny());
+        System.out.println("MOOD: " + yandere.getMood());
+        System.out.println("-".repeat(20) + "\n");
+      }
+
+      System.out.println("What do you wanna do?~\n1.Feed\n2.Play\n3.Make a compliment\n4.Exit");
+      try {
+        int choice = console.nextInt();
+
+        switch (choice) {
+          case 1:
+            System.out.println("Choose the type of food you wanna feed me ♡(>ᴗ•)\n1.Matcha latte\n2.Mochi\n3.Sushi\n4.Tayaki\n5.Ramen");
+            int food = console.nextInt();
+            console.nextLine();
+            if (chan instanceof YandereCharacter)
+              ((YandereCharacter) chan).feed(food);
+            break;
+          case 2:
+            if (chan instanceof YandereCharacter)
+              ((YandereCharacter) chan).play();
+            break;
+          case 3:
+            console.nextLine();
+            System.out.println("Say something romantic to your tyan: ");
+            String compliment = console.nextLine();
+            if (chan instanceof YandereCharacter)
+              ((YandereCharacter) chan).sayCompliment();
+            break;
+          case 4:
+            System.exit(0);
+            console.close();
+            break;
+          default:
+            System.out.println("Invalid input");
+        }
+      } catch (NumberFormatException e) {
+        System.out.println("Invalid input");
+      }
     }
   }
 }
