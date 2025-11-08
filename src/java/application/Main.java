@@ -191,7 +191,7 @@ public class Main {
           case 3:
             console.nextLine();
             System.out.println("Say something romantic to your tyan: ");
-            String compliment = console.nextLine();
+            console.nextLine();
             if (chan instanceof YandereCharacter)
               ((YandereCharacter) chan).sayCompliment();
             break;
@@ -237,7 +237,7 @@ public class Main {
           case 3:
             console.nextLine();
             System.out.println("Say something romantic to your tyan: ");
-            String compliment = console.nextLine();
+            console.nextLine();
             if (chan instanceof MaidCharacter)
               ((MaidCharacter) chan).sayCompliment();
             break;
@@ -283,7 +283,7 @@ public class Main {
           case 3:
             console.nextLine();
             System.out.println("Say something romantic to your tyan: ");
-            String compliment = console.nextLine();
+            console.nextLine();
             if (chan instanceof CatgirlCharacter)
               ((CatgirlCharacter) chan).sayCompliment();
             break;
