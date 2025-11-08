@@ -117,7 +117,7 @@ public class Main {
       if (chan instanceof TsundereCharacter){
         TsundereCharacter tsundere = (TsundereCharacter) chan;
         System.out.println("\n" + "-".repeat(20));
-        System.out.println("\nYour: " + tsundere.getName() + " " + tsundere.getSurname() + " ♡");
+        System.out.println("\nYour: " + tsundere.getName() + " " + tsundere.getSurname() + " ♡"+tsundere.getAge()+" years old");
         System.out.println("-".repeat(20));
         System.out.println("HUNGER: " + tsundere.getHunger());
         System.out.println("ENERGY: " + tsundere.getEnergy());
@@ -163,7 +163,7 @@ public class Main {
       if (chan instanceof YandereCharacter){
         YandereCharacter yandere = (YandereCharacter) chan;
         System.out.println("\n" + "-".repeat(20));
-        System.out.println("\nYour: " + yandere.getName() + " " + yandere.getSurname() + " ♡");
+        System.out.println("\nYour: " + yandere.getName() + " " + yandere.getSurname() + " ♡"+yandere.getAge()+" years old");
         System.out.println("-".repeat(20));
         System.out.println("HUNGER: " + yandere.getHunger());
         System.out.println("ENERGY: " + yandere.getEnergy());
@@ -209,7 +209,7 @@ public class Main {
       if (chan instanceof MaidCharacter){
         MaidCharacter maid = (MaidCharacter) chan;
         System.out.println("\n" + "-".repeat(20));
-        System.out.println("\nYour: " + maid.getName() + " " + maid.getSurname() + " ♡");
+        System.out.println("\nYour: " + maid.getName() + " " + maid.getSurname() + " ♡"+maid.getAge()+" years old");
         System.out.println("-".repeat(20));
         System.out.println("HUNGER: " + maid.getHunger());
         System.out.println("ENERGY: " + maid.getEnergy());
@@ -255,7 +255,7 @@ public class Main {
       if (chan instanceof CatgirlCharacter){
         CatgirlCharacter catgirl = (CatgirlCharacter) chan;
         System.out.println("\n" + "-".repeat(20));
-        System.out.println("\nYour: " + catgirl.getName() + " " + catgirl.getSurname() + " ♡");
+        System.out.println("\nYour: " + catgirl.getName() + " " + catgirl.getSurname() + " ♡"+catgirl.getAge()+" years old");
         System.out.println("-".repeat(20));
         System.out.println("HUNGER: " + catgirl.getHunger());
         System.out.println("ENERGY: " + catgirl.getEnergy());

@@ -36,8 +36,7 @@ implements Playable, Feedable
       type
     );
   }
-  // TODO: user the same logic from TsundereCharacter feed() method
-  // literally just copy-paste this
+  
   public void feed(final int food) {
     switch (food) {
       case 1: // Matcha latt
