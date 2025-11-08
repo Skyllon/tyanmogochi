@@ -66,10 +66,12 @@ implements Feedable
     if (this.energy > 1e2) this.energy = 1e2;
 
     // Mood check
-    if (this.hunger > 80 && this.energy > 80)
+    if (this.hunger < 40 && this.energy > 70)
       this.mood = MoodState.HAPPY;
-    else if (this.hunger < 30 && this.energy < 40)
+    else if (this.hunger > 40 && this.energy < 40)
       this.mood = MoodState.SAD;
+    else if (this.hunger >80 )
+      this.mood = MoodState.ANGRY;
     System.out.printf("%s\n", getLovelyPhrase());
   }
 
@@ -77,6 +79,13 @@ implements Feedable
     setMood(MoodState.HAPPY);
     this.horny += 20.25;
     this.energy += 5.5;
+    if (this.horny > 80 && this.hunger>60 && this.mood==MoodState.HAPPY){
+      this.mood = MoodState.HORNY;
+    }
+    if (this.horny > 100)
+      this.horny = 100.0;
+    else if (this.horny < 0)
+      this.horny = 0.0;
   }
 
   public void cook() {
