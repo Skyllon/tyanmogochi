@@ -92,11 +92,10 @@ public class Main {
           int food = console.nextInt();
           console.nextLine();
           if (chan instanceof TsundereCharacter){
-            ((TsundereCharacter) chan).feed();
+            ((TsundereCharacter) chan).feed(food);
           }
           break;
         case 2:
-
           if (chan instanceof TsundereCharacter){
             ((TsundereCharacter) chan).play();
           }

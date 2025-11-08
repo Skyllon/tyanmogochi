@@ -1,5 +1,5 @@
 package model.interfaces;
 
 public interface Feedable {
-  public void feed();
+  public void feed(final int food);
 }
