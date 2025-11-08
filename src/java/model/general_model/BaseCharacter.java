@@ -41,21 +41,6 @@ public abstract class BaseCharacter {
     this.type         = type;
   }
 
-  /*
-   * TODO
-   *
-   * process situations when adding value that can give the result above 100
-   * then need to set 100 'cause it's maximum value that could possible for statuses
-
-   * Example:
-   *  intial hunger: 80.0
-   *  feed by onigiri: 25.2
-   *  final hunger: 105.2
-   *
-   * Solution:
-   * if (this.hunger + food.savory >= 100.0)  - Note that we work with Double's
-   *  setHunger(100.0)
-   */
   public void setName(String name) {
     try {
       if (name instanceof String)
