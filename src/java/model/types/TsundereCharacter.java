@@ -73,32 +73,35 @@ implements Feedable
     if (this.energy > 1e2) this.energy = 1e2;
 
     // Mood check
-    if (this.hunger > 80 && this.energy > 80){
+    if (this.hunger > 80 && this.energy > 80)
       this.mood = MoodState.HAPPY;
-    } else if (this.hunger < 30 && this.energy < 40){
+    else if (this.hunger < 30 && this.energy < 40)
       this.mood = MoodState.SAD;
-    }
   }
 
   public void sayCompliment() {
     setMood(MoodState.HAPPY);
-    System.out.println("No. No.. Youre just kidding. Baka");
+    System.out.println("No. No.. You're just kidding. Baka");
     this.isEmbarassed = true;
     this.horny += 5.25;
-    if (this.horny >80 && this.mood == MoodState.HAPPY){
+
+    if (this.horny > 80 && this.mood == MoodState.HAPPY)
       this.mood = MoodState.HORNY;
-    }
+
     System.out.println(this.getLovelyPhrase());
   }
   public void play(){
-    if (isEmbarassed ==  true && (this.mood == MoodState.SAD || this.mood == MoodState.ANGRY || this.mood == MoodState.TIRED)){
+    if (isEmbarassed ==  true &&
+    (this.mood == MoodState.SAD
+    || this.mood == MoodState.ANGRY
+    || this.mood == MoodState.TIRED)) {
       System.out.println("What? No");
       return;
-    } else if (this.mood == MoodState.HAPPY){
+    } else if (this.mood == MoodState.HAPPY) {
       this.mood = MoodState.PLAYFUL;
       this.energy -= 10.;
       this.hunger += 15.;
-    } else if (this.mood == MoodState.HORNY){
+    } else if (this.mood == MoodState.HORNY) {
       this.energy -= 15.;
       this.hunger += 15.;
     }
