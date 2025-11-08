@@ -39,7 +39,7 @@ public class Main {
           TsundereCharacter tsundere = new TsundereCharacter(
             name,
             surname,
-            null,
+            "No. No.. You're just kidding. Baka",
             age,
             50.,
             50.,
@@ -122,14 +122,14 @@ public class Main {
     while (true){
       if (chan instanceof TsundereCharacter){
         TsundereCharacter tsundere = (TsundereCharacter) chan;
-        System.out.println("\n"+"-".repeat(20));
+        System.out.println("\n" + "-".repeat(20));
         System.out.println("\nYour: " + tsundere.getName() + " " + tsundere.getSurname() + " ♡");
         System.out.println("-".repeat(20));
-        System.out.println("HUNGER: "+tsundere.getHunger());
-        System.out.println("ENERGY: "+tsundere.getEnergy());
-        System.out.println("HORNY: "+tsundere.getHorny());
-        System.out.println("MOOD: "+tsundere.getMood());
-        System.out.println("-".repeat(20)+"\n");
+        System.out.println("HUNGER: " + tsundere.getHunger());
+        System.out.println("ENERGY: " + tsundere.getEnergy());
+        System.out.println("HORNY: " + tsundere.getHorny());
+        System.out.println("MOOD: " + tsundere.getMood());
+        System.out.println("-".repeat(20) + "\n");
       }
 
       System.out.println("What do you wanna do?~\n1.Feed\n2.Play\n3.Make a compliment\n4.Exit");
@@ -149,9 +149,10 @@ public class Main {
               ((TsundereCharacter) chan).play();
             break;
           case 3:
-              String compliment = console.next();
-              if (chan instanceof TsundereCharacter)
-                ((TsundereCharacter) chan).sayCompliment();
+            System.out.println("Say something romantic to your tyan: ");
+            console.next();
+            if (chan instanceof TsundereCharacter)
+              ((TsundereCharacter) chan).sayCompliment();
             break;
           case 4:
             System.exit(0);
@@ -166,7 +167,3 @@ public class Main {
     }
   }
 }
-//TODO: add other girls
-//TODO: make a list of grls to make a choice
-// TODO: make functionally based play-mode(?)
-// TODO: later will be calculated by type of food
