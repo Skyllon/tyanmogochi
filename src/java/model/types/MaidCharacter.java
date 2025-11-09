@@ -60,37 +60,40 @@ implements Feedable
         this.energy += 20.5;
         break;
     }
-
-    // Boundaries check
-    if (this.hunger < 0)   this.hunger = 0.;
-    if (this.energy > 1e2) this.energy = 1e2;
-
-    // Mood check
-    if (this.hunger < 40 && this.energy > 70)
-      this.mood = MoodState.HAPPY;
-    else if (this.hunger > 40 && this.energy < 40)
-      this.mood = MoodState.SAD;
-    else if (this.hunger >80 )
-      this.mood = MoodState.ANGRY;
-    System.out.printf("%s\n", getLovelyPhrase());
+    stats();
   }
 
   public void sayCompliment() {
     setMood(MoodState.HAPPY);
     this.horny += 20.25;
     this.energy += 5.5;
-    if (this.horny > 80 && this.hunger>60 && this.mood==MoodState.HAPPY){
-      this.mood = MoodState.HORNY;
-    }
-    if (this.horny > 100)
-      this.horny = 100.0;
-    else if (this.horny < 0)
-      this.horny = 0.0;
+    stats();
   }
 
   public void cook() {
     this.energy -= 15.5;
+    this.hunger += 15.5;
     setMood(MoodState.TIRED);
     System.out.printf("Cooked a pie!\n");
+    stats();
+  }
+
+  public void stats(){
+    if (this.energy<0)   this.energy = 0.;
+    if (this.hunger<0)   this.hunger = 0.;
+    if (this.horny<0)    this.horny = 0.;
+    if (this.energy>100) this.energy = 100.;
+    if (this.hunger>100) this.hunger = 100.;
+    if (this.horny>100)  this.horny = 100.;
+    if (this.hunger < 40 && this.energy > 70)
+      this.mood = MoodState.HAPPY;
+    else if (this.hunger > 40 && this.energy < 40)
+      this.mood = MoodState.SAD;
+    else if (this.hunger >80 )
+      this.mood = MoodState.ANGRY;
+    if (this.horny > 80 && this.hunger>60 && this.mood==MoodState.HAPPY){
+      this.mood = MoodState.HORNY;
+    }
+    System.out.printf("%s\n", getLovelyPhrase());
   }
 }

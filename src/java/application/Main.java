@@ -193,6 +193,8 @@ public class Main {
               ((YandereCharacter) chan).play();
             else if (chan instanceof CatgirlCharacter)
               ((CatgirlCharacter) chan).play();
+            else if (chan instanceof MaidCharacter)
+              ((MaidCharacter) chan).cook();
             break;
           case 3:
             console.nextLine();
