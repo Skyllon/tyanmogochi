@@ -60,17 +60,7 @@ implements Playable, Feedable
         this.energy += 20.5;
         break;
     }
-
-    // Boundaries check
-    if (this.hunger < 0)   this.hunger = 0.;
-    if (this.energy > 1e2) this.energy = 1e2;
-
-    // Mood check
-    if (this.hunger > 80 && this.energy > 80)
-      this.mood = MoodState.HAPPY;
-    else if (this.hunger < 30 && this.energy < 40)
-      this.mood = MoodState.SAD;
-
+    stats();
   }
 
   public void play() {
@@ -78,10 +68,7 @@ implements Playable, Feedable
     this.hunger += 17.5;
     if (this.energy > 65 && this.hunger < 40)
       setMood(MoodState.PLAYFUL);
-    else if (this.energy >40 && this.hunger <30)
-      setMood(MoodState.HAPPY);
-    else if (this.energy >90 && this.hunger >90)
-      setMood(MoodState.TIRED);
+    stats();
   }
 
 
@@ -89,18 +76,28 @@ implements Playable, Feedable
     this.horny += 20.25;
     System.out.println(this.getLovelyPhrase());
     setMood(MoodState.HAPPY);
-    if (this.horny >80 && this.hunger <30 && this.mood==MoodState.HAPPY){
+    stats();
+  }
+
+  public void stats(){
+    if (this.energy<0)   this.energy = 0.;
+    if (this.hunger<0)   this.hunger = 0.;
+    if (this.horny<0)    this.horny = 0.;
+    if (this.energy>100) this.energy = 100.;
+    if (this.hunger>100) this.hunger = 100.;
+    if (this.horny>100)  this.horny = 100.;
+
+    if (this.hunger <40 && this.energy > 80 && this.horny >40)
+      this.mood = MoodState.HAPPY;
+    else if (this.energy < 40 && this.hunger >90)
+      setMood(MoodState.TIRED);
+    if (this.horny >80 && this.hunger <30 && this.mood==MoodState.HAPPY && this.energy>50){
       this.mood = MoodState.HORNY;
     }
-    else if (this.horny > 40 && this.hunger <20 )
-      this.mood = MoodState.HAPPY;
-    else if (this.horny < 40 && this.hunger >40&& this.energy <40)
+    else if (this.horny < 40 && this.hunger >60&& this.energy <40)
       this.mood = MoodState.SAD;
     else if (this.horny < 20 && this.hunger >70&& this.energy <20)
       this.mood = MoodState.ANGRY;
-    if (this.horny > 100)
-      this.horny = 100.0;
-    else if (this.horny < 0)
-      this.horny = 0.0;
+    
   }
 }
