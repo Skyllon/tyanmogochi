@@ -67,16 +67,8 @@ implements Feedable
         this.energy += 20.5;
         break;
     }
-
-    // Boundaries check
-    if (this.hunger < 0)   this.hunger = 0.;
-    if (this.energy > 1e2) this.energy = 1e2;
-
-    // Mood check
-    if (this.hunger < 30 && this.energy > 80)
-      this.mood = MoodState.HAPPY;
-    else if (this.hunger > 80 && this.energy < 40)
-      this.mood = MoodState.SAD;
+    stats();
+    
   }
 
   public void sayCompliment() {
@@ -86,12 +78,9 @@ implements Feedable
 
     if (this.horny > 80 && this.mood == MoodState.HAPPY)
       this.mood = MoodState.HORNY;
-    if (this.horny > 100)
-      this.horny = 100.0;
-    else if (this.horny < 0)
-      this.horny = 0.0;
 
     System.out.println(this.getLovelyPhrase());
+    stats();
   }
   public void play(){
     if (isEmbarassed ==  true &&
@@ -108,9 +97,19 @@ implements Feedable
       this.energy -= 15.;
       this.hunger += 15.;
     }
-
-    if (this.energy < 0)   this.energy = 0.;
-    if (this.hunger > 1e2) this.hunger = 1e2;
+    stats();
   }
+  public void stats(){
+    if (this.energy<0)   this.energy = 0.;
+    if (this.hunger<0)   this.hunger = 0.;
+    if (this.horny<0)    this.horny = 0.;
+    if (this.energy>100) this.energy = 100.;
+    if (this.hunger>100) this.hunger = 100.;
+    if (this.horny>100)  this.horny = 100.;
 
+    if (this.hunger < 30 && this.energy > 80)
+      this.mood = MoodState.HAPPY;
+    else if (this.hunger > 80 && this.energy < 40)
+      this.mood = MoodState.SAD;
+  }
 }
