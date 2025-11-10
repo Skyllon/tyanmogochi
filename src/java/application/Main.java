@@ -123,7 +123,7 @@ public class Main {
         System.out.println("HUNGER: " + tsundere.getHunger());
         System.out.println("ENERGY: " + tsundere.getEnergy());
         System.out.println("HORNY: " + tsundere.getHorny());
-        System.out.println("MOOD: " + tsundere.getMood());
+        System.out.println("MOOD: " + tsundere.getMood().tyanmodji());
         System.out.println("-".repeat(20) + "\n");
         gameMenu(tsundere);
       }
@@ -135,7 +135,7 @@ public class Main {
         System.out.println("HUNGER: " + yandere.getHunger());
         System.out.println("ENERGY: " + yandere.getEnergy());
         System.out.println("HORNY: " + yandere.getHorny());
-        System.out.println("MOOD: " + yandere.getMood());
+        System.out.println("MOOD: " + yandere.getMood().tyanmodji());
         System.out.println("-".repeat(20) + "\n");
         gameMenu(yandere);
       }
@@ -147,7 +147,7 @@ public class Main {
         System.out.println("HUNGER: " + maid.getHunger());
         System.out.println("ENERGY: " + maid.getEnergy());
         System.out.println("HORNY: " + maid.getHorny());
-        System.out.println("MOOD: " + maid.getMood());
+        System.out.println("MOOD: " + maid.getMood().tyanmodji());
         System.out.println("-".repeat(20) + "\n");
         gameMenu(maid);
       }
@@ -159,7 +159,7 @@ public class Main {
         System.out.println("HUNGER: " + catgirl.getHunger());
         System.out.println("ENERGY: " + catgirl.getEnergy());
         System.out.println("HORNY: " + catgirl.getHorny());
-        System.out.println("MOOD: " + catgirl.getMood());
+        System.out.println("MOOD: " + catgirl.getMood().tyanmodji());
         System.out.println("-".repeat(20) + "\n");
         gameMenu(catgirl);
       }
