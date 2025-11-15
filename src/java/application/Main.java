@@ -1,5 +1,4 @@
 package application;
-
 import java.util.Scanner;
 import model.types.*;
 import model.general_model.states.*;
@@ -28,6 +27,8 @@ public class Main {
 
     Object chan = null;
     try {
+      Boolean checked = false;
+
       switch (chanChoice){
         case 1:
           TsundereCharacter tsundere = new TsundereCharacter(
@@ -44,9 +45,23 @@ public class Main {
             TyanType.TSUNDERE,
             false
           );
-          tsundere.setName(name);
-          tsundere.setSurname(surname);
-          tsundere.setAge(age);
+
+          
+
+          do {
+            tsundere.setName(name);
+            tsundere.setSurname(surname);
+            tsundere.setAge(age);
+            if (age > 15 && age <100) {
+              checked = true; 
+              break;
+            } else {
+              System.out.println("Age must be between 15 and 100!!!");
+              age = console.nextInt();
+              console.nextLine();
+            }
+          } while (!checked);
+          
           chan = tsundere;
           break;
         case 2:
@@ -63,9 +78,21 @@ public class Main {
             MoodState.HAPPY,
             TyanType.YANDERE
           );
-          yandere.setName(name);
-          yandere.setSurname(surname);
-          yandere.setAge(age);
+          
+          do {
+            yandere.setName(name);
+            yandere.setSurname(surname);
+            yandere.setAge(age);
+            if (age > 15 && age <100) {
+              checked = true; 
+              break;
+            } else {
+              System.out.println("Age must be between 15 and 100!!!");
+              age = console.nextInt();
+              console.nextLine();
+            }
+          } while (!checked);
+          
           chan = yandere;
           break;
         case 3:
@@ -82,9 +109,21 @@ public class Main {
             MoodState.HAPPY,
             TyanType.MAID
           );
-          maid.setName(name);
-          maid.setSurname(surname);
-          maid.setAge(age);
+
+          do {
+            maid.setName(name);
+            maid.setSurname(surname);
+            maid.setAge(age);
+            if (age > 15 && age <100) {
+              checked = true; 
+              break;
+            } else {
+              System.out.println("Age must be between 15 and 100!!!");
+              age = console.nextInt();
+              console.nextLine();
+            }
+          } while (!checked);
+
           chan = maid;
           break;
         case 4:
@@ -101,9 +140,21 @@ public class Main {
             MoodState.HAPPY,
             TyanType.CATGIRL
           );
-          catgirl.setName(name);
-          catgirl.setSurname(surname);
-          catgirl.setAge(age);
+
+          do {
+            catgirl.setName(name);
+            catgirl.setSurname(surname);
+            catgirl.setAge(age);
+            if (age > 15 && age <100) {
+              checked = true; 
+              break;
+            } else {
+              System.out.println("Age must be between 15 and 100!!!");
+              age = console.nextInt();
+              console.nextLine();
+            }
+          } while (!checked);
+
           chan = catgirl;
           break;
         default:

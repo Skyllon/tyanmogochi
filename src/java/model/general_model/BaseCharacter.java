@@ -70,12 +70,11 @@ public abstract class BaseCharacter {
       if (age instanceof Integer) {
         if (age > 0 && age < 100)
           this.age = age;
-        else
-          throw new IllegalArgumentException("Age must be between 0 and 100");
-      } else {
-        throw new IllegalArgumentException("Age must be an integer");
-      }
-    } catch(Exception e) { e.printStackTrace(); }
+        else 
+          return;
+      } 
+    } 
+    catch(Exception e) { e.printStackTrace(); }
   }
   public void setHunger(Double hunger) {
     try {
