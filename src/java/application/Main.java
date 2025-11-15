@@ -46,8 +46,6 @@ public class Main {
             false
           );
 
-          
-
           do {
             tsundere.setName(name);
             tsundere.setSurname(surname);

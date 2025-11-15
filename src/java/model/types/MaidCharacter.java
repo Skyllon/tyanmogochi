@@ -85,15 +85,16 @@ implements Feedable
     if (this.energy>100) this.energy = 100.;
     if (this.hunger>100) this.hunger = 100.;
     if (this.horny>100)  this.horny = 100.;
-    if (this.hunger < 40 && this.energy > 70)
+    if (this.hunger < 40 && this.energy > 70 && (this.horny > 40&& this.horny <80))
       this.mood = MoodState.HAPPY;
-    else if (this.hunger > 40 && this.energy < 40)
+    else if (this.hunger > 50 && this.energy < 40 && this.horny < 40)
       this.mood = MoodState.SAD;
-    else if (this.hunger >80 )
+    else if (this.horny == 0 || this.hunger == 0 || this.energy == 0)
       this.mood = MoodState.ANGRY;
-    if (this.horny > 80 && this.hunger>60 && this.mood==MoodState.HAPPY){
+    else if (this.horny > 80 && this.hunger<60 && this.energy>50){
       this.mood = MoodState.HORNY;
-    }
+    } else if (this.horny < 60 && this.hunger >30&& this.energy <40)
+      this.mood = MoodState.TIRED;
     System.out.printf("%s\n", getLovelyPhrase());
   }
 }
