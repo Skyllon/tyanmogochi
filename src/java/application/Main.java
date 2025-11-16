@@ -1,6 +1,5 @@
 package application;
 
-import application.MenuBehaviour;
 import java.util.Scanner;
 
 public class Main {
