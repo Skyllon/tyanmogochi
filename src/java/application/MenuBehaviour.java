@@ -166,9 +166,9 @@ public class MenuBehaviour {
           System.out.println("\nYour " + tsundere.getName() +
           " " + tsundere.getSurname() + " ♡ " + tsundere.getAge() + " years old");
           System.out.println("-".repeat(20));
-          System.out.println("HUNGER: " + tsundere.getHunger());
-          System.out.println("ENERGY: " + tsundere.getEnergy());
-          System.out.println("HORNY: " + tsundere.getHorny());
+          System.out.printf("HUNGER: %.2f\n", tsundere.getHunger());
+          System.out.printf("ENERGY: %.2f\n", tsundere.getEnergy());
+          System.out.printf("HORNY: %.2f\n", tsundere.getHorny());
           System.out.println("MOOD: " + tsundere.getMood().tyanmodji());
           System.out.println("-".repeat(20) + "\n");
         } else if (chan instanceof YandereCharacter) {
@@ -176,9 +176,9 @@ public class MenuBehaviour {
           System.out.println("\n" + "-".repeat(20));
           System.out.println("\nYour " + yandere.getName() + " " + yandere.getSurname() + " ♡"+yandere.getAge()+" "+" years old");
           System.out.println("-".repeat(20));
-          System.out.println("HUNGER: " + yandere.getHunger());
-          System.out.println("ENERGY: " + yandere.getEnergy());
-          System.out.println("HORNY: " + yandere.getHorny());
+          System.out.printf("HUNGER: %.2f\n",yandere.getHunger());
+          System.out.printf("ENERGY: %.2f\n",yandere.getEnergy());
+          System.out.printf("HORNY: %.2f\n",yandere.getHorny());
           System.out.println("MOOD: " + yandere.getMood().tyanmodji());
           System.out.println("-".repeat(20) + "\n");
         } else if (chan instanceof MaidCharacter) {
@@ -186,9 +186,9 @@ public class MenuBehaviour {
           System.out.println("\n" + "-".repeat(20));
           System.out.println("\nYour " + maid.getName() + " " + maid.getSurname() + " ♡"+maid.getAge()+" "+" years old");
           System.out.println("-".repeat(20));
-          System.out.println("HUNGER: " + maid.getHunger());
-          System.out.println("ENERGY: " + maid.getEnergy());
-          System.out.println("HORNY: " + maid.getHorny());
+          System.out.printf("HUNGER: %.2f\n", maid.getHunger());
+          System.out.printf("ENERGY: %.2f\n", maid.getEnergy());
+          System.out.printf("HORNY: %.2f\n", maid.getHorny());
           System.out.println("MOOD: " + maid.getMood().tyanmodji());
           System.out.println("-".repeat(20) + "\n");
         } else if (chan instanceof CatgirlCharacter) {
@@ -197,9 +197,9 @@ public class MenuBehaviour {
           System.out.println("\nYour " + catgirl.getName() + " "
             + catgirl.getSurname() + " ♡ " + catgirl.getAge()+ " years old");
           System.out.println("-".repeat(20));
-          System.out.println("HUNGER: " + catgirl.getHunger());
-          System.out.println("ENERGY: " + catgirl.getEnergy());
-          System.out.println("HORNY: " + catgirl.getHorny());
+          System.out.printf("HUNGER: %.2\nf", catgirl.getHunger());
+          System.out.printf("ENERGY: %.2f\n", catgirl.getEnergy());
+          System.out.printf("HORNY: %.2f\n", catgirl.getHorny());
           System.out.println("MOOD: " + catgirl.getMood().tyanmodji());
           System.out.println("-".repeat(20) + "\n");
         }
