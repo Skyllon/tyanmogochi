@@ -36,6 +36,15 @@ buildNumber.properties
 .project
 .classpath
 
+# Gradle
+.gradle/
+build/
+out/
+*.jar
+.DS_Store
+Thumbs.db
+*.log
+
 ## N/Vim
 [._]*.s[a-v][a-z]
 !*.svg  # comment out if you don't need vector files
@@ -61,3 +70,8 @@ tags
 *.vsix
 .history
 .ionide
+
+#output files
+/target/
+/build/
+/classes/
