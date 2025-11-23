@@ -68,13 +68,13 @@ implements Feedable
         break;
     }
     stats();
-    
+
   }
 
   public void sayCompliment() {
     setMood(MoodState.HAPPY);
     this.isEmbarassed = true;
-    this.horny += 5.25; 
+    this.horny += 5.25;
 
     if (this.horny > 80 && this.mood == MoodState.HAPPY)
       this.mood = MoodState.HORNY;
@@ -100,12 +100,12 @@ implements Feedable
     stats();
   }
   public void stats(){
-    if (this.energy<0)   this.energy = 0.;
-    if (this.hunger<0)   this.hunger = 0.;
-    if (this.horny<0)    this.horny = 0.;
-    if (this.energy>100) this.energy = 100.;
-    if (this.hunger>100) this.hunger = 100.;
-    if (this.horny>100)  this.horny = 100.;
+    if (this.energy < 0)   this.energy = 0.;
+    if (this.hunger < 0)   this.hunger = 0.;
+    if (this.horny < 0)    this.horny  = 0.;
+    if (this.energy > 100) this.energy = 100.;
+    if (this.hunger > 100) this.hunger = 100.;
+    if (this.horny > 100)  this.horny  = 100.;
 
     if (this.hunger < 30 && this.energy > 80)
       this.mood = MoodState.HAPPY;

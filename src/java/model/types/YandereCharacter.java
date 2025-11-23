@@ -41,7 +41,7 @@ implements Playable
     this.hunger += 10.5;
     this.horny += 3.5;
     stats();
-    
+
   }
   public void sayCompliment() {
     if (mood == MoodState.ANGRY) {
@@ -96,31 +96,28 @@ implements Playable
         this.horny += 5.5;
         break;
     }
-    
+
     stats();
-  
+
   }
   public void stats(){
-    if (this.energy<0)   this.energy = 0.;
-    if (this.hunger<0)   this.hunger = 0.;
-    if (this.horny<0)    this.horny = 0.;
-    if (this.energy>100) this.energy = 100.;
-    if (this.hunger>100) this.hunger = 100.;
-    if (this.horny>100)  this.horny = 100.;
+    if (this.energy < 0)   this.energy = 0.;
+    if (this.hunger < 0)   this.hunger = 0.;
+    if (this.horny < 0)    this.horny  = 0.;
+    if (this.energy > 100) this.energy = 100.;
+    if (this.hunger > 100) this.hunger = 100.;
+    if (this.horny > 100)  this.horny  = 100.;
     if (this.horny > 70 && this.energy > 50) this.mood = MoodState.HORNY;
-    if (this.horny >20 && this.energy >60 && this.hunger<50) this.mood = MoodState.HAPPY;
+    if (this.horny > 20 && this.energy > 60 && this.hunger < 50) this.mood = MoodState.HAPPY;
     if (this.energy < 30) {
       this.mood = MoodState.TIRED;
       this.horny -= 5.5;
     }
-    if ( this.energy <30 && this.hunger>60) {
+    if ( this.energy < 30 && this.hunger > 60) {
       this.mood = MoodState.SAD;
       this.horny -= 5.5;
-      if (this.horny<0)    this.horny = 0.;
+      if (this.horny < 0)    this.horny = 0.;
     }
-    if (this.horny <5 ) this.mood = MoodState.ANGRY;
+    if (this.horny < 5) this.mood = MoodState.ANGRY;
   }
-  // TODO: think about additional methods or fields that can describe this type well
-  // maybe need to think about some level of violence that will be increase because
-  // of others girls attention
 }
