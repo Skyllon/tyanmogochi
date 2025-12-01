@@ -39,6 +39,7 @@ buildNumber.properties
 # Gradle
 .gradle/
 build/
+bin/
 out/
 *.jar
 .DS_Store
@@ -47,7 +48,6 @@ Thumbs.db
 
 ## N/Vim
 [._]*.s[a-v][a-z]
-!*.svg  # comment out if you don't need vector files
 [._]*.sw[a-p]
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
@@ -60,12 +60,7 @@ tags
 [._]*.un~
 
 # VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+.vscode/
 .history/
 *.vsix
 .history
