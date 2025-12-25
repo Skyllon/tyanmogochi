@@ -5,6 +5,10 @@ import model.general_model.BaseCharacter;
 import model.general_model.states.*;
 import model.interfaces.Feedable;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "maid")
 public class MaidCharacter
 extends BaseCharacter
 implements Feedable

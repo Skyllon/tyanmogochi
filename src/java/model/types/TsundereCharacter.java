@@ -3,7 +3,10 @@ package model.types;
 import model.general_model.BaseCharacter;
 import model.general_model.states.*;
 import model.interfaces.Feedable;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "tsundere")
 public class TsundereCharacter
 extends BaseCharacter
 implements Feedable

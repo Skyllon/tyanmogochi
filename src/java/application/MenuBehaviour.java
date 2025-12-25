@@ -4,10 +4,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import model.general_model.states.MoodState;
 import model.general_model.states.TyanType;
 import model.types.*;
+import service.*;
 
+@Component
 public class MenuBehaviour {
   public static Object gameMenu(Scanner in) {
     Random  rand                = new Random();

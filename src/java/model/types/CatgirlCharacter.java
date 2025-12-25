@@ -4,7 +4,10 @@ import model.general_model.BaseCharacter;
 import model.general_model.states.*;
 import model.interfaces.Feedable;
 import model.interfaces.Playable;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "catgirl")
 public class CatgirlCharacter
 extends BaseCharacter
 implements Playable, Feedable
