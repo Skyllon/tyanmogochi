@@ -1,8 +1,8 @@
-plugins{
+plugins {
     id 'java'
     id 'application'
-    id 'org.springframework.boot' version '3.1.6'
-    id 'io.spring.dependency-management' version '1.1.3'
+    id 'org.springframework.boot' version '3.3.5'
+    id 'io.spring.dependency-management' version '1.1.6'
 }
 
 java {
@@ -10,35 +10,23 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
+
 application {
     mainClass = 'application.Main'
-}
-
-sourceSets {
-    main{
-        java{
-            srcDirs=["src/java"]
-        }
-        resources{
-            srcDirs=["resources"]
-        }
-    }
-
 }
 
 repositories {
     mavenCentral()
 }
 
-run {
-    standardInput = System.in
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    runtimeOnly 'com.h2database:h2'
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 }
+
 bootRun {
     standardInput = System.in
-}
-dependencies{
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
-    runtimeOnly 'com.h2database:h2'
 }
