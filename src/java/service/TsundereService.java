@@ -1,8 +1,7 @@
 package service;
 
 import model.types.TsundereCharacter;
-import repository.MaidCharacterRepository;
-import repository.TsundereRepository;
+import application.repository.TsundereRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

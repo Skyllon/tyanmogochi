@@ -1,7 +1,7 @@
 package service;
 
 import model.types.MaidCharacter;
-import repository.MaidCharacterRepository;
+import application.repository.MaidCharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

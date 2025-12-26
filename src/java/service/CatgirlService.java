@@ -1,7 +1,7 @@
 package service;
 
 import model.types.CatgirlCharacter;
-import repository.CatGirlRepository;
+import application.repository.CatGirlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

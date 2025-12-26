@@ -1,4 +1,4 @@
-package repository;
+package application.repository;
 import model.types.YandereCharacter;
 
 import org.springframework.data.jpa.repository.JpaRepository;

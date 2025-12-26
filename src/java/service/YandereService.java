@@ -1,7 +1,7 @@
 package service;
 
 import model.types.YandereCharacter;
-import repository.YandereRepository;
+import application.repository.YandereRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
