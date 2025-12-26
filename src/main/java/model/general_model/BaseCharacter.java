@@ -33,6 +33,8 @@ public abstract class BaseCharacter {
   @Enumerated(EnumType.STRING)
   protected TyanType  type;
 
+  public BaseCharacter() {}
+
   public BaseCharacter(
     String    name,
     String    surname,
@@ -88,10 +90,10 @@ public abstract class BaseCharacter {
       if (age instanceof Integer) {
         if (age > 0 && age < 100)
           this.age = age;
-        else 
+        else
           return;
-      } 
-    } 
+      }
+    }
     catch(Exception e) { e.printStackTrace(); }
   }
   public void setHunger(Double hunger) {
