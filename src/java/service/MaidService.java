@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class MaidService {
     @Autowired
     private MaidCharacterRepository maidRepository;
-    public MaidCharacter saveMaid(MaidCharacter maid) {
+    public MaidCharacter save(MaidCharacter maid) {
         return maidRepository.save(maid);
     }
     public MaidCharacter findById(Long id) {

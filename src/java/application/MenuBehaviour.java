@@ -13,7 +13,20 @@ import service.*;
 
 @Component
 public class MenuBehaviour {
-  public static Object gameMenu(Scanner in) {
+
+  @Autowired
+  private YandereService yandereService;
+
+  @Autowired
+  private TsundereService tsundereService;
+
+  @Autowired
+  private MaidService maidService;
+
+  @Autowired
+  private CatgirlService catgirlService;
+  
+  public  Object gameMenu(Scanner in){ {
     Random  rand                = new Random();
     Integer tyanType            = 0;
     Integer tyanAge             = 0;
@@ -87,10 +100,13 @@ public class MenuBehaviour {
             TyanType.TSUNDERE,
             false
           );
+          
           tsundere.setName(tyanName);
           tsundere.setSurname(tyanSurname);
           tsundere.setAge(tyanAge);
-          chan = tsundere;
+          TsundereCharacter savedtsundere= tsundereService.save(tsundere);
+          chan = savedtsundere;
+         
           break;
         case 2:
           YandereCharacter yandere = new YandereCharacter(
@@ -106,10 +122,13 @@ public class MenuBehaviour {
             MoodState.HAPPY,
             TyanType.YANDERE
           );
+          
           yandere.setName(tyanName);
           yandere.setSurname(tyanSurname);
           yandere.setAge(tyanAge);
-          chan = yandere;
+          YandereCharacter savedyandere= yandereService.save(yandere);
+          chan = savedyandere;
+          
           break;
         case 3:
           MaidCharacter maid = new MaidCharacter(
@@ -125,10 +144,13 @@ public class MenuBehaviour {
             MoodState.HAPPY,
             TyanType.MAID
           );
+          
           maid.setName(tyanName);
           maid.setSurname(tyanSurname);
           maid.setAge(tyanAge);
-          chan = maid;
+          MaidCharacter savedmaid= maidService.save(maid);
+          chan = savedmaid;
+          
           break;
         case 4:
           CatgirlCharacter catgirl = new CatgirlCharacter(
@@ -144,10 +166,13 @@ public class MenuBehaviour {
             MoodState.HAPPY,
             TyanType.CATGIRL
           );
+          
           catgirl.setName(tyanName);
           catgirl.setSurname(tyanSurname);
           catgirl.setAge(tyanAge);
-          chan = catgirl;
+          CatgirlCharacter savedcatgirl= catgirlService.save(catgirl);
+          chan = savedcatgirl;
+          
           break;
         default:
           throw new IllegalArgumentException("Invalid input");
@@ -158,8 +183,8 @@ public class MenuBehaviour {
 
     return chan;
   }
-
-  public static void tyanMenu(Object chan, Scanner in) {
+  }
+  public  void tyanMenu(Object chan, Scanner in) {
     Integer userChoice = 0;
 
     while (true) {
@@ -229,6 +254,7 @@ public class MenuBehaviour {
               ((MaidCharacter) chan).feed(food);
             else if (chan instanceof CatgirlCharacter)
               ((CatgirlCharacter) chan).feed(food);
+            saveCharacter(chan);
             break;
           case 2:
             if (chan instanceof TsundereCharacter)
@@ -239,6 +265,7 @@ public class MenuBehaviour {
               ((CatgirlCharacter) chan).play();
             else if (chan instanceof MaidCharacter)
               ((MaidCharacter) chan).cook();
+            saveCharacter(chan);
             break;
           case 3:
             in.nextLine();
@@ -252,6 +279,7 @@ public class MenuBehaviour {
               ((MaidCharacter) chan).sayCompliment();
             else if (chan instanceof CatgirlCharacter)
               ((CatgirlCharacter) chan).sayCompliment();
+            saveCharacter(chan);
             break;
           case 4:
             return;
@@ -262,6 +290,20 @@ public class MenuBehaviour {
         System.out.printf("You should enter a value!\n");
         in.next();
       }
+    }
+  }
+  private  void saveCharacter(Object character){
+    try{
+      if (character instanceof TsundereCharacter)
+        tsundereService.save((TsundereCharacter) character);
+      else if (character instanceof YandereCharacter)
+        yandereService.save((YandereCharacter) character);
+      else if (character instanceof MaidCharacter)
+        maidService.save((MaidCharacter) character);
+      else if (character instanceof CatgirlCharacter)
+        catgirlService.save((CatgirlCharacter) character);
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
     }
   }
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class YandereService {
     @Autowired
     private YandereRepository yandereRepository;
-    public YandereCharacter saveYandere(YandereCharacter yandere) {
+    public YandereCharacter save(YandereCharacter yandere) {
         return yandereRepository.save(yandere);
     }
     public YandereCharacter findById(Long id) {
