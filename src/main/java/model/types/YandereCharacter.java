@@ -3,11 +3,16 @@ package model.types;
 import model.general_model.BaseCharacter;
 import model.general_model.states.*;
 import model.interfaces.Playable;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "yandere")
 public class YandereCharacter
 extends BaseCharacter
 implements Playable
 {
+  public YandereCharacter() { super(); }
+
   public YandereCharacter(
     String    name,
     String    surname,

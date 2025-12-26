@@ -1,15 +1,20 @@
 package model.types;
 
-
 import model.general_model.BaseCharacter;
 import model.general_model.states.*;
 import model.interfaces.Feedable;
-
-public class MaidCharacter
+import model.interfaces.Playable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "catgirl")
+public class CatgirlCharacter
 extends BaseCharacter
-implements Feedable
+implements Playable, Feedable
 {
-  public MaidCharacter(
+  public CatgirlCharacter() { super(); }
+
+  public CatgirlCharacter(
     String    name,
     String    surname,
     String    lovelyPhrase,
@@ -63,18 +68,19 @@ implements Feedable
     stats();
   }
 
-  public void sayCompliment() {
-    setMood(MoodState.HAPPY);
-    this.horny += 20.25;
-    this.energy += 5.5;
+  public void play() {
+    this.energy -= 10.5;
+    this.hunger += 17.5;
+    if (this.energy > 65 && this.hunger < 40)
+      setMood(MoodState.PLAYFUL);
     stats();
   }
 
-  public void cook() {
-    this.energy -= 15.5;
-    this.hunger += 15.5;
-    setMood(MoodState.TIRED);
-    System.out.printf("Cooked a pie!\n");
+
+  public void sayCompliment() {
+    this.horny += 20.25;
+    System.out.println(this.getLovelyPhrase());
+    setMood(MoodState.HAPPY);
     stats();
   }
 
@@ -85,16 +91,18 @@ implements Feedable
     if (this.energy > 100) this.energy = 100.;
     if (this.hunger > 100) this.hunger = 100.;
     if (this.horny > 100)  this.horny  = 100.;
-    if (this.hunger < 40 && this.energy > 70 && (this.horny > 40 && this.horny < 80))
+
+    if (this.hunger < 40 && this.energy > 80 && this.horny > 40)
       this.mood = MoodState.HAPPY;
-    else if (this.hunger > 50 && this.energy < 40 && this.horny < 40)
-      this.mood = MoodState.SAD;
-    else if (this.horny == 0 || this.hunger == 0 || this.energy == 0)
-      this.mood = MoodState.ANGRY;
-    else if (this.horny > 80 && this.hunger < 60 && this.energy > 50) {
+    else if (this.energy < 40 && this.hunger > 90)
+      setMood(MoodState.TIRED);
+    if (this.horny > 80 && this.hunger < 30 && this.mood==MoodState.HAPPY && this.energy > 50){
       this.mood = MoodState.HORNY;
-    } else if (this.horny < 60 && this.hunger >30 && this.energy < 40)
-      this.mood = MoodState.TIRED;
-    System.out.printf("%s\n", getLovelyPhrase());
+    }
+    else if (this.horny < 40 && this.hunger > 60 && this.energy < 40)
+      this.mood = MoodState.SAD;
+    else if (this.horny < 20 && this.hunger > 70 && this.energy < 20)
+      this.mood = MoodState.ANGRY;
+
   }
 }

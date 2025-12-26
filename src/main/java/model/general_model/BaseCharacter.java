@@ -2,18 +2,38 @@ package model.general_model;
 
 import model.general_model.states.*;
 
+import jakarta.persistence.*;
+@MappedSuperclass
 public abstract class BaseCharacter {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  protected Long      id;
+  @Column
   protected String    name;
+  @Column
   protected String    surname;
+  @Column
   protected String    lovelyPhrase;
+  @Column
   protected Integer   age;
+  @Column
   protected Double    hunger;
+  @Column
   protected Double    energy;
+  @Column
   protected Double    horny;
+  @Column
   protected Boolean   isFeedable;
+  @Column
   protected Boolean   isPlayable;
+  @Column
+  @Enumerated(EnumType.STRING)
   protected MoodState mood;
+  @Column
+  @Enumerated(EnumType.STRING)
   protected TyanType  type;
+
+  public BaseCharacter() {}
 
   public BaseCharacter(
     String    name,
@@ -70,10 +90,10 @@ public abstract class BaseCharacter {
       if (age instanceof Integer) {
         if (age > 0 && age < 100)
           this.age = age;
-        else 
+        else
           return;
-      } 
-    } 
+      }
+    }
     catch(Exception e) { e.printStackTrace(); }
   }
   public void setHunger(Double hunger) {

@@ -3,13 +3,19 @@ package model.types;
 import model.general_model.BaseCharacter;
 import model.general_model.states.*;
 import model.interfaces.Feedable;
-import model.interfaces.Playable;
-
-public class CatgirlCharacter
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "tsundere")
+public class TsundereCharacter
 extends BaseCharacter
-implements Playable, Feedable
+implements Feedable
 {
-  public CatgirlCharacter(
+  private Boolean isEmbarassed;
+
+  public TsundereCharacter() { super(); }
+
+  public TsundereCharacter(
     String    name,
     String    surname,
     String    lovelyPhrase,
@@ -20,7 +26,8 @@ implements Playable, Feedable
     Boolean   isFeedable,
     Boolean   isPlayable,
     MoodState mood,
-    TyanType  type
+    TyanType  type,
+    Boolean   isEmbarassed
   ) {
     super(
       name,
@@ -35,7 +42,12 @@ implements Playable, Feedable
       mood,
       type
     );
+
+    this.isEmbarassed = isEmbarassed;
   }
+
+  public void setIsEmbarassed(Boolean isEmbarassed) { this.isEmbarassed = isEmbarassed; }
+  public Boolean getIsEmbarassed()                  { return this.isEmbarassed;         }
 
   public void feed(final int food) {
     switch (food) {
@@ -61,24 +73,37 @@ implements Playable, Feedable
         break;
     }
     stats();
-  }
 
-  public void play() {
-    this.energy -= 10.5;
-    this.hunger += 17.5;
-    if (this.energy > 65 && this.hunger < 40)
-      setMood(MoodState.PLAYFUL);
-    stats();
   }
-
 
   public void sayCompliment() {
-    this.horny += 20.25;
-    System.out.println(this.getLovelyPhrase());
     setMood(MoodState.HAPPY);
+    this.isEmbarassed = true;
+    this.horny += 5.25;
+
+    if (this.horny > 80 && this.mood == MoodState.HAPPY)
+      this.mood = MoodState.HORNY;
+
+    System.out.println(this.getLovelyPhrase());
     stats();
   }
-
+  public void play(){
+    if (isEmbarassed ==  true &&
+    (this.mood == MoodState.SAD
+    || this.mood == MoodState.ANGRY
+    || this.mood == MoodState.TIRED)) {
+      System.out.println("What? No");
+      return;
+    } else if (this.mood == MoodState.HAPPY || this.mood == MoodState.PLAYFUL) {
+      this.mood = MoodState.PLAYFUL;
+      this.energy -= 10.;
+      this.hunger += 15.;
+    } else if (this.mood == MoodState.HORNY) {
+      this.energy -= 15.;
+      this.hunger += 15.;
+    }
+    stats();
+  }
   public void stats(){
     if (this.energy < 0)   this.energy = 0.;
     if (this.hunger < 0)   this.hunger = 0.;
@@ -87,17 +112,9 @@ implements Playable, Feedable
     if (this.hunger > 100) this.hunger = 100.;
     if (this.horny > 100)  this.horny  = 100.;
 
-    if (this.hunger < 40 && this.energy > 80 && this.horny > 40)
+    if (this.hunger < 30 && this.energy > 80)
       this.mood = MoodState.HAPPY;
-    else if (this.energy < 40 && this.hunger > 90)
-      setMood(MoodState.TIRED);
-    if (this.horny > 80 && this.hunger < 30 && this.mood==MoodState.HAPPY && this.energy > 50){
-      this.mood = MoodState.HORNY;
-    }
-    else if (this.horny < 40 && this.hunger > 60 && this.energy < 40)
+    else if (this.hunger > 80 && this.energy < 40)
       this.mood = MoodState.SAD;
-    else if (this.horny < 20 && this.hunger > 70 && this.energy < 20)
-      this.mood = MoodState.ANGRY;
-
   }
 }

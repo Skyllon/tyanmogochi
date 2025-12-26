@@ -1,16 +1,21 @@
 package model.types;
 
+
 import model.general_model.BaseCharacter;
 import model.general_model.states.*;
 import model.interfaces.Feedable;
 
-public class TsundereCharacter
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "maid")
+public class MaidCharacter
 extends BaseCharacter
 implements Feedable
 {
-  private Boolean isEmbarassed;
+  public MaidCharacter() { super(); }
 
-  public TsundereCharacter(
+  public MaidCharacter(
     String    name,
     String    surname,
     String    lovelyPhrase,
@@ -21,8 +26,7 @@ implements Feedable
     Boolean   isFeedable,
     Boolean   isPlayable,
     MoodState mood,
-    TyanType  type,
-    Boolean   isEmbarassed
+    TyanType  type
   ) {
     super(
       name,
@@ -37,12 +41,7 @@ implements Feedable
       mood,
       type
     );
-
-    this.isEmbarassed = isEmbarassed;
   }
-
-  public void setIsEmbarassed(Boolean isEmbarassed) { this.isEmbarassed = isEmbarassed; }
-  public Boolean getIsEmbarassed()                  { return this.isEmbarassed;         }
 
   public void feed(final int food) {
     switch (food) {
@@ -68,37 +67,23 @@ implements Feedable
         break;
     }
     stats();
-
   }
 
   public void sayCompliment() {
     setMood(MoodState.HAPPY);
-    this.isEmbarassed = true;
-    this.horny += 5.25;
-
-    if (this.horny > 80 && this.mood == MoodState.HAPPY)
-      this.mood = MoodState.HORNY;
-
-    System.out.println(this.getLovelyPhrase());
+    this.horny += 20.25;
+    this.energy += 5.5;
     stats();
   }
-  public void play(){
-    if (isEmbarassed ==  true &&
-    (this.mood == MoodState.SAD
-    || this.mood == MoodState.ANGRY
-    || this.mood == MoodState.TIRED)) {
-      System.out.println("What? No");
-      return;
-    } else if (this.mood == MoodState.HAPPY || this.mood == MoodState.PLAYFUL) {
-      this.mood = MoodState.PLAYFUL;
-      this.energy -= 10.;
-      this.hunger += 15.;
-    } else if (this.mood == MoodState.HORNY) {
-      this.energy -= 15.;
-      this.hunger += 15.;
-    }
+
+  public void cook() {
+    this.energy -= 15.5;
+    this.hunger += 15.5;
+    setMood(MoodState.TIRED);
+    System.out.printf("Cooked a pie!\n");
     stats();
   }
+
   public void stats(){
     if (this.energy < 0)   this.energy = 0.;
     if (this.hunger < 0)   this.hunger = 0.;
@@ -106,10 +91,16 @@ implements Feedable
     if (this.energy > 100) this.energy = 100.;
     if (this.hunger > 100) this.hunger = 100.;
     if (this.horny > 100)  this.horny  = 100.;
-
-    if (this.hunger < 30 && this.energy > 80)
+    if (this.hunger < 40 && this.energy > 70 && (this.horny > 40 && this.horny < 80))
       this.mood = MoodState.HAPPY;
-    else if (this.hunger > 80 && this.energy < 40)
+    else if (this.hunger > 50 && this.energy < 40 && this.horny < 40)
       this.mood = MoodState.SAD;
+    else if (this.horny == 0 || this.hunger == 0 || this.energy == 0)
+      this.mood = MoodState.ANGRY;
+    else if (this.horny > 80 && this.hunger < 60 && this.energy > 50) {
+      this.mood = MoodState.HORNY;
+    } else if (this.horny < 60 && this.hunger >30 && this.energy < 40)
+      this.mood = MoodState.TIRED;
+    System.out.printf("%s\n", getLovelyPhrase());
   }
 }
