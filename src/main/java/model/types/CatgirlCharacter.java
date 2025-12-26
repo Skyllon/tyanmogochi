@@ -12,6 +12,8 @@ public class CatgirlCharacter
 extends BaseCharacter
 implements Playable, Feedable
 {
+  public CatgirlCharacter() { super(); }
+
   public CatgirlCharacter(
     String    name,
     String    surname,
@@ -39,7 +41,7 @@ implements Playable, Feedable
       type
     );
   }
-  
+
   public void feed(final int food) {
     switch (food) {
       case 1: // Matcha latt
@@ -101,6 +103,6 @@ implements Playable, Feedable
       this.mood = MoodState.SAD;
     else if (this.horny < 20 && this.hunger >70&& this.energy <20)
       this.mood = MoodState.ANGRY;
-    
+
   }
 }

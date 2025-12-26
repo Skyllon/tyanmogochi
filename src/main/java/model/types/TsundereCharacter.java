@@ -13,6 +13,8 @@ implements Feedable
 {
   private Boolean isEmbarassed;
 
+  public TsundereCharacter() { super(); }
+
   public TsundereCharacter(
     String    name,
     String    surname,
@@ -71,13 +73,13 @@ implements Feedable
         break;
     }
     stats();
-    
+
   }
 
   public void sayCompliment() {
     setMood(MoodState.HAPPY);
     this.isEmbarassed = true;
-    this.horny += 5.25; 
+    this.horny += 5.25;
 
     if (this.horny > 80 && this.mood == MoodState.HAPPY)
       this.mood = MoodState.HORNY;

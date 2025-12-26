@@ -13,6 +13,8 @@ public class MaidCharacter
 extends BaseCharacter
 implements Feedable
 {
+  public MaidCharacter() { super(); }
+
   public MaidCharacter(
     String    name,
     String    surname,

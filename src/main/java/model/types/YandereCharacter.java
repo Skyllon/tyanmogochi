@@ -11,6 +11,8 @@ public class YandereCharacter
 extends BaseCharacter
 implements Playable
 {
+  public YandereCharacter() { super(); }
+
   public YandereCharacter(
     String    name,
     String    surname,
@@ -44,7 +46,7 @@ implements Playable
     this.hunger += 10.5;
     this.horny += 3.5;
     stats();
-    
+
   }
   public void sayCompliment() {
     if (mood == MoodState.ANGRY) {
@@ -99,9 +101,9 @@ implements Playable
         this.horny += 5.5;
         break;
     }
-    
+
     stats();
-  
+
   }
   public void stats(){
     if (this.energy<0)   this.energy = 0.;
